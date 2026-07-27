@@ -18955,4 +18955,21 @@ WhatsApp
   .btn-whatsapp i {
     font-size: 34px;
   }
+
+  .whats {
+  float: left;
+  background: #96ff00;
+  font-family: 'Urbanist';
+  color: #121213;
+  font-size: 10px;
+  font-weight: 600;
+  height: 50%;
+  width: 100%;
+  padding: 15px 15px 15px 15px;
+  border-radius: 50px;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
   
