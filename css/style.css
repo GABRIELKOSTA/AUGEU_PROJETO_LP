@@ -11075,7 +11075,7 @@ Header
   gap: 25px;
 }
 .logo img {
-  min-width: 122px;
+  max-width: 82px;
 }
 nav.nav-area ul {
   display: flex;
@@ -11130,10 +11130,11 @@ Banner Header
   font-family: 'Urbanist';
   color: #96ff00;
   font-weight:600;
-  font-size:62px;
+  font-size: 62px;
   letter-spacing: -2px;
   line-height:72px;
   padding-right: 250px;
+  
 }
 @media only screen and (max-width: 1199px) {
   .banner-one-wrapper .title {
@@ -11147,6 +11148,7 @@ Banner Header
   .banner-one-wrapper .title {
     font-size: 46px;
     line-height: 60px;
+    margin-top: 20px;
   }
   .rts-mouse-move-button {
     display: none;
