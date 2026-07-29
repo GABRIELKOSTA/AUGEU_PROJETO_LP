@@ -49,8 +49,28 @@
 <link href="css/plugins/animate.min.css" rel="stylesheet"/>
 <link href="css/vendor/bootstrap.min.css" rel="stylesheet"/>
 <link href="css/style.css" rel="stylesheet"/>
-</meta></meta></meta></meta></head>
+</meta></meta></meta></meta>
+<style>
+html{scroll-behavior:smooth}
+.header-wrapper{position:relative;}
+#ageuMenuToggle{
+display:flex;flex-direction:column;justify-content:space-between;
+width:34px;height:24px;background:transparent;border:0;padding:0;
+cursor:pointer;margin-left:18px;
+}
+#ageuMenuToggle span{display:block;height:3px;background:#fff;border-radius:99px;transition:.3s}
+#ageuMenuToggle:hover span{background:#9CFF00}
+#ageuDrawer{position:fixed;top:0;right:-360px;width:340px;max-width:90vw;height:100vh;background:rgba(8,8,8,.97);backdrop-filter:blur(10px);transition:.35s;z-index:9999;padding:32px}
+#ageuDrawer.open{right:0}
+#ageuOverlay{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:.35s;z-index:9998}
+#ageuOverlay.open{opacity:1;pointer-events:auto}
+#ageuDrawer a{display:block;color:#fff;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:20px}
+#ageuDrawer a:hover{color:#9CFF00;padding-left:8px}
+.ageu-cta{display:block;margin-top:28px;background:#9CFF00;color:#000!important;padding:16px;border-radius:999px;text-align:center;font-weight:bold}
+</style>
+</head>
 <body>
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZMRZ6Q" style="display:none;visibility:hidden" width="0"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
@@ -64,23 +84,46 @@
 <div class="header-right">
 <div class="menu-btn">
 <div class="rts-offcanvas-wrapper">
+
 <div class="container-menu">
-<a href="https://api.whatsapp.com/send?phone=5562998220215&text=Ol%C3%A1,%20vim%20pelo%20seu%20an%C3%BAncio%20online%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os!" target="_blank" title="Falar com Especialista"><span class="whats">Falar com Especialista <i class="fa-solid fa-arrow-up-right"></i></span></a>
-</div>
-</div>
-</div>
+<button id="ageuMenuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></div></div>
 </div>
 </div>
 </div>
 </header>
 <!-- Fim Header -->
+
+<div id="ageuOverlay"></div>
+<nav id="ageuDrawer">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:25px">
+<strong style="color:#9CFF00;font-size:28px">AGEU</strong>
+<button id="ageuClose" style="background:none;border:0;color:#fff;font-size:30px;cursor:pointer">✕</button>
+</div>
+<a href="#inicio">Início</a>
+<a href="#servicos">Serviços</a>
+<a href="#cases">Casos de Sucesso</a>
+<a href="#parceiros">Parceiros</a>
+<a href="#sobre">Quem Somos</a>
+<a href="#contato">Contato</a>
+<a class="ageu-cta" href="https://api.whatsapp.com/send?phone=5562998220215" target="_blank">Falar com Especialista</a>
+</nav>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+const t=document.getElementById('ageuMenuToggle'),d=document.getElementById('ageuDrawer'),o=document.getElementById('ageuOverlay'),c=document.getElementById('ageuClose');
+function sw(v){d.classList.toggle('open',v);o.classList.toggle('open',v);}
+t.onclick=()=>sw(true);c.onclick=()=>sw(false);o.onclick=()=>sw(false);
+d.querySelectorAll('a').forEach(a=>a.onclick=()=>sw(false));
+});
+</script>
+
 <!-- Api WhatsApp -->
 <a href="https://api.whatsapp.com/send?phone=5562998220215&text=Ol%C3%A1,%20vim%20pelo%20seu%20an%C3%BAncio%20online%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os!" target="_blank" title="WhatsApp">
 <button class="btn-whatsapp">WhatsApp<i aria-hidden="true" class="fa-brands fa-whatsapp"></i></button></a>
 <div id="smooth-wrapper">
 <div id="smooth-content">
 <!-- Banner -->
-<section class="banner-area banner-style-one banner-bg-1 hero__area-3 banner__jump">
+<section id="inicio" class="banner-area banner-style-one banner-bg-1 hero__area-3 banner__jump">
 
 <div class="container">
 <div class="row ptb--200 ptb_sm--150">
@@ -128,7 +171,7 @@
 <!-- Fim Destaques -->
 
 <!-- Cases -->
-<section class="rts-portfolio-grid-area" style="margin-top: 30px;">
+<section id="cases" class="rts-portfolio-grid-area" style="margin-top: 30px;">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
@@ -226,7 +269,7 @@
 <!-- Fm Cases -->
  
 <!-- Serviços -->
-<section class="rts-section-gap rts-service-area serv-margin" style="margin-top: 10px;">
+<section id="servicos" class="rts-section-gap rts-service-area serv-margin" style="margin-top: 10px;">
 <div class="container" >
 <div class="row">
 <div class="col-lg-12">
@@ -312,7 +355,7 @@
 </section>
 <!-- Fim Serviços -->
 <!-- Cases -->
-<section class="rts-portfolio-grid-area">
+<section id="parceiros" class="rts-portfolio-grid-area">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
@@ -427,7 +470,7 @@
 </section>
 <!-- Faixa Serviços -->
 <!-- Quem Somos -->
-<section class="sobre">
+<section id="sobre" class="sobre">
 <div class="container">
 <div class="row">
 <h1 class="title wow fadeInUp">
@@ -537,7 +580,7 @@
 </section>
 <!-- Fim Clientes -->
 <!-- Chamada WhatsApp -->
-<section class="cta-main-wrapper-three rts-section-gapBottom">
+<section id="contato" class="cta-main-wrapper-three rts-section-gapBottom">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
